@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
+        // para qiue no sea auto incrmeent     
+        $table->id();
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ return new class extends Migration
             $table->string('title')->after('id');
             $table->string('description')->after('title');
             $table->string('isbn')->unique()->after('description');
-            $table->integer('total', false)->after('isbn');
-            $table->integer('available',false)->after('total');
+            $table->integer('total')->after('isbn');
+            $table->integer('available')->after('total');
             $table->boolean('status')->after('available');
         });
     }
