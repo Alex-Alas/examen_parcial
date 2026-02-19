@@ -22,7 +22,8 @@ class UpdateLoanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            // permite actualizar la fecha de devolución
+            'return_date' => 'sometimes|date',
         ];
     }
 }

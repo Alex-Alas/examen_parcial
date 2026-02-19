@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoanController;
 
 // Endpoints:
 // TODO: GET /books
@@ -25,5 +27,17 @@ Route::post( // Crear loan
 // TODO: POST /returns/{loan_id}
 Route::post( // crear return
     'returns/{loan_id}',
-    [LoanController::class, 'store']
+    [LoanController::class, 'update']
+);
+
+// TODO: GET /loans/{loan_id}
+Route::get( // Obtener loan específico
+    'loans/{loan}',
+    [LoanController::class, 'show']
+);
+
+// TODO: GET /loans
+Route::get( // Listar loans
+    'loans',
+    [LoanController::class, 'index']
 );
