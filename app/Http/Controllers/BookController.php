@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $query = Book::query();
+
+        $books = $query->get();
+
+        return response()->json($books);
     }
 
     /**
@@ -37,7 +42,8 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        // return response()->json(BookResource::make($user));
+        return response()->json($book);
     }
 
     /**

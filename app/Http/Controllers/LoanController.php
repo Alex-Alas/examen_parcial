@@ -29,7 +29,17 @@ class LoanController extends Controller
      */
     public function store(StoreLoanRequest $request)
     {
-        //
+        
+    
+        $data = $request->validated();
+        
+        if (!isset($data['loan_date'])) {
+            $data['loan_date'] = now();
+        }
+
+        $loan = Loan::create($data);
+
+        return response()->json($loan);
     }
 
     /**
