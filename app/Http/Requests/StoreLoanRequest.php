@@ -22,10 +22,17 @@ class StoreLoanRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< Updated upstream
             // registra: nombre del solicitante, fecha y hora del préstamo, ISBN del libro
             'borrower_name' => 'required|string|max:255',
             'loan_date' => 'required|date',
             'isbn' => 'required|string|max:13|exists:books,isbn',
+=======
+            // Registra nombre de solicitante, fechahora y libro prestado.
+            'borrower_name' => 'required|string|max:255',
+            'loan_date' => 'required|date',
+            'book_isn' => 'required|exists:books,isbn',
+>>>>>>> Stashed changes
         ];
     }
 }

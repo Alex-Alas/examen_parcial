@@ -15,6 +15,7 @@ class BookController extends Controller
      */
     public function index(Request $request)
     {
+<<<<<<< Updated upstream
         // Validar datos de entrada del request
         $request->validate([
             'title' => 'sometimes|string|max:255',
@@ -25,21 +26,46 @@ class BookController extends Controller
         $query = Book::query();
 
         // Filtros (title, author, isbn)
+=======
+        $request->validate([
+            'title' => 'sometimes|string|max:255',
+            'isbn' => 'sometimes|string|max:13',
+            'status' => 'sometimes|boolean',
+        ]);
+        
+        $query = Book::query();
+
+>>>>>>> Stashed changes
         if ($request->has('title')) {
             $query->where('title', 'like', '%' . $request->input('title') . '%');
         }
 
+<<<<<<< Updated upstream
         if ($request->has('author')) {
             $query->where('author', 'like', '%' . $request->input('author') . '%');
         }
 
         if ($request->has('isbn')) {
             $query->where('isbn', 'like', '%' . $request->input('isbn') . '%');
+=======
+        if ($request->has('isbn')) {
+            $query->where('isbn', $request->isbn);
+        }
+
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
+>>>>>>> Stashed changes
         }
 
         $books = $query->get();
 
+<<<<<<< Updated upstream
         return response()->json(BookResource::collection($books));
+=======
+        return response()->json($books);
+        // TODO: agregar el book resource para formatear la respuesta
+        // return response()->json(BookResource::collection($books));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -80,7 +106,7 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+        // 
     }
 
     /**
