@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
+use App\Http\Resources\LoanResource;
+use Symfony\Component\HttpFoundation\Request;
 
 class LoanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // Listar loans
+        $loans = Loan::all();
+        return response()->json(LoanResource::collection($loans));
     }
 
     /**

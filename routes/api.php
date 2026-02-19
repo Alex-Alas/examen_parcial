@@ -29,3 +29,15 @@ Route::post( // crear return
     'returns/{loan_id}',
     [LoanController::class, 'update']
 );
+
+// TODO: GET /loans/{loan_id}
+Route::get( // Obtener loan específico
+    'loans/{loan}',
+    [LoanController::class, 'show']
+);
+
+// TODO: GET /loans
+Route::get( // Listar loans
+    'loans',
+    [LoanController::class, 'index']
+);
