@@ -11,11 +11,11 @@ class Loan extends Model
         'name',
         'loan_date',
         'return_date',
-        'books_id'
+        'books_id',
     ];
 
     public function book(): BelongsTo
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Book::class, 'books_id');
     }
 }

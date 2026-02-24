@@ -14,15 +14,15 @@ class BookResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-    // retorna en el siguiente orden: titulo, descripción, ISBN, copias totales
-    // copias disponibles y estado (boolean)
-    return [
-        'titulo' => $this->title,
-        'descripción' => $this->description,
-        'ISBN' => $this->isbn,
-        'copias_totales' => $this->total_copies,
-        'copias_disponibles' => $this->available_copies,
-        'estado' => $this->available_copies > 0
+        // retorna en el siguiente orden: titulo, descripción, ISBN, copias totales
+        // copias disponibles y estado (boolean)
+        return [
+            'titulo' => $this->title,
+            'descripción' => $this->description,
+            'ISBN' => $this->isbn,
+            'copias_totales' => $this->total,
+            'copias_disponibles' => $this->available,
+            'estado' => $this->available > 0,
         ];
     }
 }

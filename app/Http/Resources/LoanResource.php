@@ -17,7 +17,7 @@ class LoanResource extends JsonResource
         // retorna: nombre del solicitante, fechahora del préstamo y titulo del libro
         // con base en la relación entre Loan y Book, claro :P
         return [
-            'nombre_solicitante' => $this->borrower_name,
+            'nombre_solicitante' => $this->name,
             'fechahora_prestamo' => $this->loan_date,
             'titulo_libro' => $this->book ? $this->book->title : null,
         ];

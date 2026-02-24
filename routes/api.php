@@ -1,19 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
+use Illuminate\Support\Facades\Route;
 
 // Endpoints:
 // TODO: GET /books
 Route::get( // Lista
-    'books', 
+    'books',
     [BookController::class, 'index']
 );
 
 // TODO: filtros: titulo, isbn, status
-Route::get( // Obtener 
+Route::get( // Obtener
     'books/{book}', // puede ser isbn, titulo o status
     [BookController::class, 'show']
 );
@@ -26,7 +25,7 @@ Route::post( // Crear loan
 
 // TODO: POST /returns/{loan_id}
 Route::post( // crear return
-    'returns/{loan_id}',
+    'returns/{loan}',
     [LoanController::class, 'update']
 );
 
